@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+function Food({name, picture}) {
+  return (
+    <div>
+     <h3>I LOVE POTATO[{name}]</h3>;
+     <img src={picture} />
+    </div>
+  );
+}
+
+const foodILike = [
+  {
+    name: '김치',
+    image: 'https://img.hankyung.com/photo/202108/99.27186019.1.jpg',
+  },
+  {
+    name: '삼겹살',
+    image: 'https://cdn.mindgil.com/news/photo/202103/70839_7148_1250.jpg',
+  },
+]; //food_i_like(FIL)
+
+function renderFood(dish) {
+  return <Food name={dish.name} picture={dish.image} />;
+}
 
 function App() {
+  console.log(foodILike.map(renderFood))
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div>
+    <h1>hello!!!</h1>
+    {foodILike.map(renderFood)}
+  </div>
   );
 }
 
